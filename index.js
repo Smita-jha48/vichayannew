@@ -1,6 +1,7 @@
 var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
+const PORT = process.env.PORT || 3000;
 
 const app = express()
 
@@ -11,7 +12,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 
-mongoose.connect('mongodb://localhost:27017/vichayanDatabase?authSource=admin', {
+mongoose.connect('mongodb+srv://Smita262:Smita262@cluster0.mksr7.mongodb.net/vichayanDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -50,7 +51,11 @@ app.get("/", (req, res) => {
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(3000);
+});
 
+app.listen(PORT, ()=>{
+    console.log("Listening on PORT 3000");
 
-console.log("Listening on PORT 3000");
+}
+    )
+
