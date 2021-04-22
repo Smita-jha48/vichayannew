@@ -1,0 +1,369 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+}
+/*-------------------------------Navigation Bar---------------------------------------*/
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    
+}
+.navbar
+{
+    background-color: rgb(212, 205, 205);
+    padding: 0rem 1rem;
+}
+.navbar-nav{
+         padding-right: 158px;
+}
+.navbar-brand{
+    padding-bottom: 0px;
+}
+.logo{
+    height: 80px;
+}
+.navbar-nav li{
+    padding: 0 10px;
+}
+.navbar-nav li a button{
+    color: white;
+    border: 0px;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+.navbar-nav li a button:hover{
+    background: transparent;
+}
+.btx1:hover{
+    background: transparent;
+    color: black;
+}
+.navbar-toggler-icon{
+    font-size: 21px;
+}
+
+/*........................................banner section..............................................*/
+#banner
+{
+    padding-top: 5%;
+}
+.promo-title{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 360px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-left: 42px;
+}
+.promo2-title{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-left: 42px;
+}
+
+.ct2{
+    background-color: rgb(255, 248, 255);
+    height: 301px;
+}
+.btx1{
+    box-shadow: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: none;
+    background-color: #5f1782;
+    color: white;
+    margin-left: 42px;
+    width: 129px;
+    margin-bottom: 11px;
+}
+
+/*---------------------------------Research Section-------------------------------------------*/
+#Research
+{
+   margin-bottom: 100px;
+   margin-top: 46px;
+}
+.promo-title5{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.Researchbtx{
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    
+}
+.btx3{
+    background-color: rgb(226, 216, 216);
+    color: white;
+    width: 400px;
+    height: 44px;
+    border-radius: 10px ;
+    box-shadow: none;
+    padding-bottom: 50px;
+    -webkit-border-radius: 60px;
+}
+@keyframes glowing {
+    0% {
+      background-color: #5f1782;
+      box-shadow: 0 0 5px #ab72da;
+    }
+    50% {
+      background-color: #5021a8;
+      box-shadow: 0 0 20px #8b19e8;
+    }
+    100% {
+      background-color: #2d1c44;
+      box-shadow: 0 0 5px #7e46d8;
+    }
+  }
+  .btx3 {
+    animation: glowing 1300ms infinite;
+  }
+.btx3:hover{
+    background-color: rgb(75, 63, 63);
+}
+/*-------------------------------------Easy Research----------------------------------*/
+.researche{
+    color: rgb(153, 6, 79);
+    background-color: rgb(255, 248, 255);
+    margin-bottom: 80px;
+   
+}
+.promo-title1{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 120px;
+    margin-left: 80px;
+}
+.libimg{
+    padding-bottom: 20px
+}
+/*--------------------------Team Innovation--------------------------------------------*/
+.team{
+    color: rgb(153, 6, 79);
+    margin-bottom: 100px;
+
+}
+.promo-title7{
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 120px;
+    margin-right: 80px;
+}
+
+/*-----------------------------------Services-------------------------------------------*/
+#services
+{
+    
+    padding-bottom: 50px;
+    background-color: rgb(250, 210, 217);
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 5%;
+}
+.service{
+    margin: 0px !important;
+}
+#services h4{
+    padding: 5px;
+    margin-top: 40px;
+}
+.service ul li{
+    text-decoration: none;
+    list-style: none;
+}
+.service ul a{
+    text-decoration: none;
+    color: black;
+}
+.service ul a:hover{
+    color: rgb(170, 4, 84);
+}
+.service-img{
+    height: 141px;
+    margin-left: 12px;
+    margin-top: 78px;
+    padding: 0px;
+}
+
+/*----------------------------footer--------------------------------------*/
+
+.copyright{
+    margin-bottom: 0px;
+    background-color: #e5bac1;
+}
+
+/*------------------------------Media Query---------------------------------------*/
+@media only screen and (max-width: 769px) {
+    .promo-title{
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        margin-top: 15px;
+    }
+    .promo2-title{
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .promo-title1{
+        margin-top: 30px;
+        margin-left: 15px;
+    }
+    .promo-title7{
+        margin-top: 30px;
+        margin-right: 15px;
+    }
+
+    .team{
+        margin-bottom: 0px;
+    }
+    .service-img{
+        margin-top: 0px;
+    }
+    
+  }
+  /*---------------------------Pop-Up form-------------------------*/
+  .login-popup{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1099;
+	background-color:rgba(0,0,0,0.6);
+	visibility: hidden;
+	opacity: 0;
+	transition: all 1s ease;
+}
+.login-popup.show{
+	visibility:visible;
+	opacity: 1;
+}
+.login-popup .box{
+	background-color:#ffffff;
+	width: 750px;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	display: flex;
+	flex-wrap: wrap;
+	opacity: 0;
+	margin-left: 50px;
+	transition: all 1s ease;
+
+}
+.login-popup.show .box{
+	opacity: 1;
+	margin-left: 0;
+}
+.login-popup .box .img-area{
+	flex:0 0 50%;
+	max-width: 50%;
+	position: relative;
+	overflow: hidden;
+	padding:30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.login-popup .box .img-area h1{
+	font-size: 30px;
+    margin-top: 370px;
+}
+.login-popup .box .img-area .img{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-image: url('/assets/images/try.png');
+	background-size: cover;
+	background-position: center;
+	animation: zoomInOut 7s linear infinite;
+	z-index: -1;
+}
+.login-popup .box .form .close{
+	position: absolute;
+	right: 10px;
+	top:0px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+@keyframes zoomInOut{
+	0%,100%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+}
+.login-popup .box .form{
+	flex:0 0 50%;
+	max-width: 50%;
+	padding:40px 30px;
+}
+
+.login-popup .box .form h1{
+	color:#000000;
+	font-size: 30px;
+	margin:0 0 30px;
+}
+.login-popup .box .form .form-control{
+	height: 45px;
+	margin-bottom: 30px;
+	width: 100%;
+	border:none;
+	border-bottom:1px solid #cccccc;
+	font-size: 15px;
+	color:#000000;
+}
+.login-popup .box .form .form-control:focus{
+	outline: none;
+}
+.login-popup .box .form label{
+	font-size: 15px;
+	color:#555555;
+}
+.login-popup .box .form .btn{
+	width: 100%;
+	background-color: #5f1782;
+	margin-top:40px;
+	height: 45px;
+	border:none;
+	border-radius: 25px;
+	font-size: 15px;
+	text-transform: uppercase;
+	color:#ffffff;
+	cursor: pointer;
+}
+.login-popup .box .form .btn:focus{
+	outline: none;
+}
+@media(max-width: 767px){
+	.login-popup .box{
+		width: calc(100% - 30px);
+	}
+	.login-popup .box .img-area{
+		display: none;
+	}
+	.login-popup .box .form{
+		flex: 0 0 100%;
+        max-width: 100%;
+	}
+}
+
+  
