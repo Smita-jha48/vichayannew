@@ -1,6 +1,7 @@
 var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
+const nodemailer = require("nodemailer")
 const PORT = process.env.PORT || 3000;
 
 const app = express()
@@ -37,11 +38,33 @@ app.post("/", (req, res) => {
         }
         console.log("Record Inserted Successfully");
     });
+    let transport = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+           user: 'smitasandilya10@gmail.com',
+           pass: ''
+        }
+    });
+    const message = {
+        from: 'smitasandilya10@gmail.com', // Sender address
+        to: data.email,         // List of recipients
+        subject: 'Registered For Vichayan', // Subject line
+        text: `${data.name} Have a great time exploring Vichayan`// Plain text body
+    }
+    transport.sendMail(message, function(err, info) {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log(info);
+        }
+    });
+    
     return res.json({
         "status": true,
         "response": 200,
         "message": "Successful"
     });
+
 })
 
 
@@ -53,9 +76,9 @@ app.get("/", (req, res) => {
     return res.redirect('index.html');
 });
 
+
 app.listen(PORT, ()=>{
     console.log("Listening on PORT 3000");
 
-}
-    )
+})
 

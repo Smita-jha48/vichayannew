@@ -16,7 +16,7 @@ function showPopup() {
       clearInterval(timer);
       loginPopup.classList.add("show");
     }
-    console.log(i)
+    console.log(i);
   }, 1000);
 }
 close.addEventListener("click", function () {
@@ -41,6 +41,8 @@ function clickCounter() {
       }
 
     }
+    
   });
+
 
 }
