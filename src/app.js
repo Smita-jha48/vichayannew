@@ -1,10 +1,17 @@
 var express = require("express")
 var bodyParser = require("body-parser")
+const hbs = require("hbs");
+const path = require("path");
 var mongoose = require("mongoose")
 const nodemailer = require("nodemailer")
 const PORT = process.env.PORT || 3000;
 
 const app = express()
+
+
+const static_path = path.join(__dirname, "../public")
+const template_path = path.join(__dirname, "../templates/views")
+const partials_path = path.join(__dirname, "../templates/partials")
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
@@ -12,6 +19,9 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
+app.set('view engine', "hbs");
+app.set("views", template_path);
+hbs.registerPartials(partials_path);
 
 mongoose.connect('mongodb+srv://Smita262:Smita262@cluster0.mksr7.mongodb.net/vichayanDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -23,6 +33,22 @@ var db = mongoose.connection;
 db.on('error', () => console.log("Error in Connecting to Database"));
 db.once('open', () => console.log("Connected to Database"))
 
+const usersSchema = {
+    name: String,
+    email: String,
+    phone: String
+}
+
+const users = mongoose.model('users', usersSchema);
+
+app.get('/admin', (req, res) => {
+    users.find({}, function(err, user) {
+        res.render('admin', {
+            userList: user
+        })
+    })
+})
+
 app.post("/", (req, res) => {
     var name = req.body.uname;
     var email = req.body.email;
@@ -32,6 +58,7 @@ app.post("/", (req, res) => {
         "email": email,
         "phone": phone,
     }
+
     db.collection('users').insertOne(data, (err, collection) => {
         if (err) {
             throw err;
@@ -59,6 +86,7 @@ app.post("/", (req, res) => {
         }
     });
     
+    
     return res.json({
         "status": true,
         "response": 200,
@@ -73,8 +101,15 @@ app.get("/", (req, res) => {
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
-    return res.redirect('index.html');
+      return res.render("index");
 });
+
+app.get('/blog', function(req, res){
+    res.render("blog");
+});
+
+
+
 
 
 app.listen(PORT, ()=>{
